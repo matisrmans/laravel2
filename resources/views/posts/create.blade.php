@@ -7,7 +7,7 @@
 </head>
 <body>
     <h1>Create a New Post</h1>
-    <form action="{{ route(posts\store) }}" method="POST">
+    <form action="/store" method="POST">
         @csrf
         
         <label for="title">Title:</label><br>

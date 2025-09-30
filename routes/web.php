@@ -4,6 +4,15 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 use App\Http\Controllers\PostController;
 
+Route::get('/posts', [PostController::class, 'index']);
+
+Route::post('/store', [PostController::class, 'store']);
+
+Route::get('/posts/create', function () {
+    return view('posts.create');
+});
+
+Route::get('/posts/{id}', [PostController::class, 'find']);
 
 Route::get('/', function () {
     return view('welcome');
@@ -18,9 +27,3 @@ Route::post('/submit-static-form', function (Request $request){
     return "Form data: " . $request['name'];
 });
 
-
-Route::get('/posts', [PostController::class, 'index']);
-
-Route::get('/posts/create', function () {
-    return view('posts.create');
-});
