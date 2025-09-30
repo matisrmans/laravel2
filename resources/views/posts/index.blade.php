@@ -6,9 +6,10 @@
 <ul>
 	@foreach ($posts as $post)
 		<li>
-			<a href="/posts/{$id}"><strong>{{ $post->title }}</strong></a><br>
+			<a href="{{ route('posts.show', $post->id) }}"><strong>{{ $post->title }}</strong></a><br>
 			{{ $post->content }}
 		</li>
+        <button>Delete</button>
 	@endforeach
 	@if ($posts->isEmpty())
 		<li>No posts found.</li>

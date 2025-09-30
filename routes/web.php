@@ -12,7 +12,8 @@ Route::get('/posts/create', function () {
     return view('posts.create');
 });
 
-Route::get('/posts/{id}', [PostController::class, 'find']);
+Route::get('/posts/{post}', [PostController::class, 'show'])->name('posts.show');
+Route::delete('/posts/{post}', [PostController::class, 'delete'])->name('posts.delete');
 
 Route::get('/', function () {
     return view('welcome');

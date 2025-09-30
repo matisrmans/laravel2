@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Post;
 
 class PostController extends Controller
 {
@@ -26,9 +27,13 @@ class PostController extends Controller
         return redirect('/posts');
     }
 
-    public function find($id){
-        $post = \App\Models\Post::find($id);
+    public function show(Post $post){
         return view('posts.show', ['post' => $post]);
+    }
+
+    public function delete(Post $post){
+        $post->delete();
+        return redirect('/posts');
     }
 
 
