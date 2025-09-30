@@ -31,8 +31,8 @@ class PostController extends Controller
         return view('posts.show', ['post' => $post]);
     }
 
-    public function delete(Post $post){
-        $post->delete();
+    public function delete($id){
+        Post::destroy($id);
         return redirect('/posts');
     }
 

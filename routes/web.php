@@ -13,7 +13,8 @@ Route::get('/posts/create', function () {
 });
 
 Route::get('/posts/{post}', [PostController::class, 'show'])->name('posts.show');
-Route::delete('/posts/{post}', [PostController::class, 'delete'])->name('posts.delete');
+
+Route::delete('/posts/delete/{id}', [PostController::class, 'delete']);
 
 Route::get('/', function () {
     return view('welcome');
